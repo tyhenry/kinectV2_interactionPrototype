@@ -46,7 +46,7 @@ int VertMenu::grab(ofVec2f pos) {
 			_grabIdx = idx;
 			_grabPos = pos;
 			_grabStartTime = ofGetElapsedTimef();
-			carousel.grab(-_grabPos.x);
+			carousel.grab(-_grabPos.y);
 		}
 		// no grab
 		else {
@@ -59,7 +59,7 @@ int VertMenu::grab(ofVec2f pos) {
 	// or drag
 	else {
 		_grabPos = pos;
-		carousel.drag(-_grabPos.x);
+		carousel.drag(-_grabPos.y);
 	}
 	return idx;
 }

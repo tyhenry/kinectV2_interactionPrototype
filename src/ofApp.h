@@ -7,6 +7,7 @@
 #include "User.h"
 #include "VertScreen.h"
 #include "HorzMenu.h"
+#include "VertMenu.h"
 #include "Button.h"
 
 
@@ -17,6 +18,15 @@ public:
 	void update();
 	void draw();
 
+	void menuHover(ofVec2f pos);
+	void menuGrab(ofVec2f pos);
+	void menuRelease(ofVec2f pos);
+	void prevMenu();
+	void nextMenu();
+	void resetMenu();
+	void restartMenus();
+	void updateMenu();
+	void drawMenu();
 
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -37,16 +47,33 @@ public:
 	VertScreen vertScreen;
 	float width = 1920;
 	float height = 1080;
+	ofVec2f cropOrig;
+	float cropWidth;
 
-	// menu states
-	HorzMenu cutMenu; // 0
-	HorzMenu catMenu; // 1
-	HorzMenu patMenu; // 2
-	// 3 == wear
+	// menus
+	int cMenu = 0;
+	bool bHorzMenu = true;
+	vector<HorzMenu> hMenus;
+	vector<VertMenu> vMenus;
+	HorzMenu lineUpMenu;
+	HorzMenu wearMenu;
+	// -1 - line up body
+	// 0 - cut
+	// 1 - category
+	// 2 - pattern
+	// 3 - wear
 
 	ofImage handOpen;
 	ofImage handClose;
-		
+
+	bool bUser = false;
+	bool bGrabbing = false;
+	bool bNewUser = true;
+	ofVec2f rHandPos;
+	float hoverTime = 0;
+	float hoverWait = 2.5; // sec until select
+
+	bool drawUser = true;	
 };
 
 
