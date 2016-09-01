@@ -5,14 +5,10 @@
 #include "ofxGui.h"
 #include "Kinect.h"
 #include "User.h"
-#include "Menu.h"
+#include "VertScreen.h"
+#include "HorzMenu.h"
+#include "Button.h"
 
-enum VertScreenMode {
-	VertScreenLeft,
-	VertScreenRight,
-	SimVertScreen,
-	HorzScreen
-};
 
 class ofApp : public ofBaseApp{
 
@@ -20,10 +16,7 @@ public:
 	void setup();
 	void update();
 	void draw();
-	void startVertScreen();
-	void endVertScreen(VertScreenMode vScreenMode);
 
-	void nextScreenMode();
 
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -39,11 +32,21 @@ public:
 
 	Kinect kinect;
 	User user;
-	Menu menu;
+	//Menu menu;
 
-	VertScreenMode screenMode = SimVertScreen;
-	ofFbo screen;
+	VertScreen vertScreen;
 	float width = 1920;
 	float height = 1080;
+
+	// menu states
+	HorzMenu cutMenu; // 0
+	HorzMenu catMenu; // 1
+	HorzMenu patMenu; // 2
+	// 3 == wear
+
+	ofImage handOpen;
+	ofImage handClose;
 		
 };
+
+

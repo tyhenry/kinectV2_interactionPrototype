@@ -10,8 +10,22 @@ void ofApp::setup(){
 	kinect.init(true,true); // color, body
 	user = User(kinect.getCoordinateMapper());
 
+	handOpen.load(ofToDataPath("icn_openHand.png"));
+	handClose.load(ofToDataPath("icn_closedHand.png"));
+
 	// do menu setup here
-	
+	// cutMenu
+	cutMenu = HorzMenu(width*0.5-height*0.5, height*0.6, height, height/5);
+	ofImage btnCut; btnCut.load(ofToDataPath("button_cut.png"));
+	for (int i=0; i<5; i++) cutMenu.addButton(btnCut);
+
+	catMenu = HorzMenu(width*0.5 - height*0.5, height*0.6, height, height / 5);
+	ofImage btnCat; btnCat.load(ofToDataPath("button_category.png"));
+	for (int i = 0; i<5; i++) cutMenu.addButton(btnCat);
+
+	patMenu = HorzMenu(width*0.5 - height*0.5, height*0.6, height, height / 5);
+	ofImage btnPat; btnPat.load(ofToDataPath("button_pattern.png"));
+	for (int i = 0; i<5; i++) cutMenu.addButton(btnPat);
 }
 
 //--------------------------------------------------------------
@@ -27,70 +41,31 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	startVertScreen();
+	vertScreen.begin();
 
 	kinect.drawColor();
 	user.draw();
+	cutMenu.drawMenu();
+	if (user.getRightHandState() == HandState_Open) {
+		ofVec2f cPos = user.getJoint2dPos(JointType_HandRight);
+		ofVec2f oPos(cPos.x - handOpen.getWidth()*0.5, cPos.y - handOpen.getWidth()*0.5);
+		handOpen.draw(oPos);
+	}
+	else if (user.getRightHandState() == HandState_Closed) {
+		ofVec2f cPos = user.getJoint2dPos(JointType_HandRight);
+		ofVec2f oPos(cPos.x - handClose.getWidth()*0.5, cPos.y - handClose.getWidth()*0.5);
+		handClose.draw(oPos);
+	}
 
-	endVertScreen(screenMode);
+	vertScreen.end();
 
 }
 
-void ofApp::startVertScreen() {
-	if (screen.getWidth() != width || screen.getHeight() != height) {
-		screen.allocate(width, height, GL_RGBA);
-	}
-	screen.begin();
-	ofClear(ofGetBackgroundColor());
-}
-
-void ofApp::endVertScreen(VertScreenMode vScreenMode) {
-
-	screen.end();
-	// draw fbo at appropriate settings
-
-	if (vScreenMode == VertScreenLeft || vScreenMode == VertScreenRight) {
-		ofPushMatrix();
-		ofRotateZ(-90);
-		float zoom = width / height; // so new height == old width
-		ofScale(zoom, zoom);
-		float trX = -width*0.5f - (height / zoom)*0.5f;
-		ofTranslate(trX, 0);
-
-		if (vScreenMode == VertScreenRight) {
-			ofTranslate(width*0.5, height*0.5);
-			ofRotate(180);
-			ofTranslate(-width*0.5, -height*0.5);
-		}
-
-		screen.draw(0, 0, width, height);
-		ofPopMatrix();
-	}
-	else if (vScreenMode == SimVertScreen) {
-		ofTexture& tex = screen.getTexture();
-		float sw = height * height / width;
-		float sx = width*0.5f - sw*0.5f;
-		tex.drawSubsection(sx, 0, sw, height, sx, 0, sw, height);
-	}
-	else {
-		screen.draw(0, 0, width, height);
-	}
-
-}
-
-void ofApp::nextScreenMode() {
-	switch (screenMode) {
-		case VertScreenLeft: screenMode = VertScreenRight; break;
-		case VertScreenRight: screenMode = SimVertScreen; break;
-		case SimVertScreen: screenMode = HorzScreen; break;
-		case HorzScreen: screenMode = VertScreenLeft; break;
-	}
-}
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	if (key == 'v' || key == 'V') {
-		nextScreenMode();
+		vertScreen.nextScreenMode();
 	}
 }
 

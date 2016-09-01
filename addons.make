@@ -1,2 +1,3 @@
 ofxGui
+ofxCarousel
 ofxKinectForWindows2

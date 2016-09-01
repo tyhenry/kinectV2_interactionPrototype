@@ -40,9 +40,6 @@
     <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.cpp">
       <Filter>addons\ofxKinectForWindows2\src\ofxKinectForWindows2</Filter>
     </ClCompile>
-    <ClCompile Include="src\Menu.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\User.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -73,6 +70,18 @@
     <ClCompile Include="src\Kinect.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\VertScreen.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCarousel\src\ofxCarousel.cpp">
+      <Filter>addons\ofxCarousel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HorzMenu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VertMenu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -101,6 +110,12 @@
     </Filter>
     <Filter Include="addons\ofxGui\src">
       <UniqueIdentifier>{34e9bdec-74b5-4228-9470-9fea012f3d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCarousel">
+      <UniqueIdentifier>{5796faa6-8008-4057-98ee-73d707b90e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCarousel\src">
+      <UniqueIdentifier>{2d37bc8b-b2a2-4d58-b559-fc9fd1467e79}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +161,6 @@
     <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2.h">
       <Filter>addons\ofxKinectForWindows2\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Menu.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\User.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -180,6 +192,21 @@
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
     <ClInclude Include="src\Kinect.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VertScreen.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCarousel\src\ofxCarousel.h">
+      <Filter>addons\ofxCarousel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Button.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HorzMenu.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VertMenu.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

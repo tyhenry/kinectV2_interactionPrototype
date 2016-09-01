@@ -99,8 +99,8 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;
-C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src;
+C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxCarousel\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -118,8 +118,8 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;
-C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src;
+C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxCarousel\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -137,8 +137,8 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;
-C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src;
+C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxCarousel\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -159,8 +159,8 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;
-C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxKinectForWindows2\src;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src;
+C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxCarousel\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -175,6 +175,7 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxCarousel\src\ofxCarousel.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp" />
@@ -183,9 +184,9 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="src\HorzMenu.cpp" />
     <ClCompile Include="src\Kinect.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.cpp" />
@@ -199,8 +200,11 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
     <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfraRed.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.cpp" />
     <ClCompile Include="src\User.cpp" />
+    <ClCompile Include="src\VertMenu.cpp" />
+    <ClCompile Include="src\VertScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxCarousel\src\ofxCarousel.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h" />
@@ -210,8 +214,9 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="src\Button.h" />
+    <ClInclude Include="src\HorzMenu.h" />
     <ClInclude Include="src\Kinect.h" />
-    <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.h" />
@@ -227,6 +232,8 @@ C:\Users\Tyler\of_v0.9.3_vs_release\addons\ofxGui\src</AdditionalIncludeDirector
     <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectForWindows2\src\ofxKinectForWindows2.h" />
     <ClInclude Include="src\User.h" />
+    <ClInclude Include="src\VertMenu.h" />
+    <ClInclude Include="src\VertScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
