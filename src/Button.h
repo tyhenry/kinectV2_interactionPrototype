@@ -4,8 +4,8 @@
 class Button {
 public:
 	Button() {};
-	Button(int index, ofImage bgImg, ofVec2f centerPos, float width, float height)
-		: idx(index), bg(bgImg), center(centerPos), w(width), h(height) {
+	Button(int index, ofImage bgImg, ofVec2f centerPos, float width, float height, bool isStatic=false)
+		: idx(index), bg(bgImg), center(centerPos), w(width), h(height), bStatic(isStatic) {
 
 		setBounds();
 	}
@@ -55,6 +55,7 @@ public:
 	void hover() { hovered = true; }
 	void noHover() { hovered = false; }
 	bool isHovered() { return hovered; }
+	bool isStatic() { return bStatic; }
 
 	void draw() {
 		if (hovered) {
@@ -66,6 +67,15 @@ public:
 			ofPopStyle();
 		}
 		bg.draw(bounds);
+		if (bStatic) {
+			ofPushStyle();
+			ofNoFill();
+			ofSetColor(0);
+			ofSetLineWidth(5);
+			ofDrawRectangle(bounds.x - 3, bounds.y - 3,
+				bounds.width + 6, bounds.height + 6); // highlight
+			ofPopStyle();
+		}
 	}
 protected:
 	int idx;
@@ -73,4 +83,5 @@ protected:
 	ofVec2f center; float w = 0, h = 0;
 	ofRectangle bounds;
 	bool hovered = false;
+	bool bStatic = false;
 };

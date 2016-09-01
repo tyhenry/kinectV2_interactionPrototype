@@ -14,6 +14,13 @@ int HorzMenu::addButton(ofImage img) {
 	return idx;
 }
 
+int HorzMenu::addStaticButton(ofImage img, ofVec2f pos, float w, float h) {
+	int idx = _buttons.size();
+	ofVec2f cPos(pos.x + w*0.5, pos.y + h*0.5);
+	_buttons.push_back(Button(idx, img, cPos, w, h, true));
+	return idx;
+}
+
 int HorzMenu::hover(ofVec2f pos) {
 	int idx = hitTest(pos);
 	if (idx >= 0) {
@@ -46,7 +53,9 @@ int HorzMenu::grab(ofVec2f pos) {
 			_grabIdx = idx;
 			_grabPos = pos;
 			_grabStartTime = ofGetElapsedTimef();
-			carousel.grab(-_grabPos.x);
+			if (!_buttons[idx].isStatic()) {
+				carousel.grab(-_grabPos.x);
+			}
 		}
 		// no grab
 		else {
@@ -59,17 +68,21 @@ int HorzMenu::grab(ofVec2f pos) {
 	// or drag
 	else {
 		_grabPos = pos;
-		carousel.drag(-_grabPos.x);
+		if (!_buttons[_grabIdx].isStatic()) {
+			carousel.drag(-_grabPos.x);
+		}
 	}
 	return idx;
 }
 
 int HorzMenu::release(ofVec2f pos) {
+	_grabStartTime = 0;
+	if (_grabIdx != -1 && !_buttons[_grabIdx].isStatic()) {
+		carousel.drop();
+	}
 	int idx = _grabIdx;
 	_grabIdx = -1;
 	_grabPos = ofVec2f(0, 0);
-	_grabStartTime = 0;
-	carousel.drop();
 	return idx;
 }
 
@@ -102,8 +115,10 @@ void HorzMenu::update() {
 	int nBtns = _buttons.size();
 	float btnW = _w / _nBtnsDisplay;
 	for (int i = 0; i < nBtns; i++) {
-		float x = carousel.positionForTile(i, nBtns, btnW);
-		_buttons[i].setLeft(_x+x);
+		if (!_buttons[i].isStatic()) {
+			float x = carousel.positionForTile(i, nBtns, btnW);
+			_buttons[i].setLeft(_x + x);
+		}
 	}
 }
 

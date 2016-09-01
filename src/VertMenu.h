@@ -25,6 +25,7 @@ public:
 	void setScreenOverlay(ofImage overlay) {
 		_overlay = overlay; _bOverlay = true;
 	}
+	int addStaticButton(ofImage img, ofVec2f pos, float w, float h);
 
 	int hover(ofVec2f pos); // returns index of button (-1 if none)
 	int grab(ofVec2f pos);

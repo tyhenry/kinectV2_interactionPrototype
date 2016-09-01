@@ -6,6 +6,9 @@ void ofApp::setup() {
 	width = ofGetWidth();
 	height = ofGetHeight();
 	cropWidth = height*height / width;
+	cropOrig = ofVec2f(width*0.5 - cropWidth*0.5, 0);
+
+	headAlign = ofVec2f(width*0.5, 310);
 
 	kinect.open();
 	kinect.init(true, true); // color, body
@@ -16,6 +19,10 @@ void ofApp::setup() {
 
 	// do menu setup here
 
+	// line up menu
+	ofImage lineUpScreen(ofToDataPath("scrn_introBody.png"));
+	lineUpMenu.setScreenOverlay(lineUpScreen);
+
 	// cut menu
 	HorzMenu cutMenu(width*0.5 - cropWidth*0.5, height*0.5, cropWidth, 5);
 	VertMenu vCutMenu(width*0.5 + cropWidth*0.5 - 120, 100, cropWidth, 5);
@@ -24,6 +31,9 @@ void ofApp::setup() {
 		cutMenu.addButton(btnCut);
 		vCutMenu.addButton(btnCut);
 	}
+	//ofImage cutScreen;
+	//cutMenu.setScreenOverlay(cutScreen);
+	//vCutMenu.setScreenOverlay(cutScreen);
 	hMenus.push_back(cutMenu);
 	vMenus.push_back(vCutMenu);
 
@@ -35,6 +45,9 @@ void ofApp::setup() {
 		catMenu.addButton(btnCat);
 		vCatMenu.addButton(btnCat);
 	}
+	ofImage catScreen(ofToDataPath("scrn_selectCategory.png"));
+	catMenu.setScreenOverlay(catScreen);
+	vCatMenu.setScreenOverlay(catScreen);
 	hMenus.push_back(catMenu);
 	vMenus.push_back(vCatMenu);
 
@@ -46,8 +59,19 @@ void ofApp::setup() {
 		patMenu.addButton(btnPat);
 		vPatMenu.addButton(btnPat);
 	}
+	ofImage patScreen(ofToDataPath("scrn_selectPattern.png"));
+	patMenu.setScreenOverlay(patScreen);
+	vPatMenu.setScreenOverlay(patScreen);
 	hMenus.push_back(patMenu);
 	vMenus.push_back(vPatMenu);
+
+	// wear menu
+	ofImage wearScreen(ofToDataPath("scrn_wear.png"));
+	wearMenu.setScreenOverlay(wearScreen);
+	ofImage img;
+	wearMenu.addStaticButton(img, ofVec2f(cropOrig.x-2, 460), 92, 92);
+	wearMenu.addStaticButton(img, ofVec2f(cropOrig.x+2, 580), 83, 83);
+	wearMenu.addStaticButton(img, ofVec2f(cropOrig.x-2, 680), 92, 92);
 
 }
 
@@ -60,6 +84,7 @@ void ofApp::update() {
 	bNewUser = user.setBody(kinect.getCentralBodyPtr());
 	user.update();
 	bUser = user.hasBody();
+
 
 	if (bUser) {
 		bool bRelease = false;
@@ -78,6 +103,34 @@ void ofApp::update() {
 					// otherwise, release
 					bGrabbing = false;
 					bRelease = true;
+				}
+			}
+			if (cMenu == -1) {
+				// do body line up
+				ofVec2f headPos = user.getJoint2dPos(JointType_Head);
+				if (headPos.distance(headAlign) < 50) {
+					nextMenu();
+				}
+			}
+			else if (cMenu == 3) {
+				if (hoverTime > hoverWait) {
+					int idx = wearMenu.getHoverIdx();
+					switch (idx) {
+					case 0: {
+						prevMenu(); prevMenu(); prevMenu();
+						break;
+					}
+					case 1: {
+						prevMenu(); prevMenu();
+						break;
+					}
+					case 2: {
+						prevMenu();
+						break;
+					}
+					default:
+						break;
+					}
 				}
 			}
 		}
@@ -104,6 +157,7 @@ void ofApp::update() {
 	else { // no user
 		bGrabbing = false;
 		resetMenu();
+		restartMenus();
 	}
 
 	updateMenu();
@@ -125,7 +179,7 @@ void ofApp::draw(){
 		if (bUser && !bGrabbing) {
 			ofVec2f cPos = user.getJoint2dPos(JointType_HandRight);
 			ofVec2f oPos(cPos.x - handOpen.getWidth()*0.5, cPos.y - handOpen.getWidth()*0.5);
-			if (hoverTime > 0) {
+			if (hoverTime > 0.5) {
 				// draw growing arc
 				ofPushStyle();
 				// arc bg
@@ -139,7 +193,7 @@ void ofApp::draw(){
 				ofSetColor(255);
 				ofSetLineWidth(10);
 				ofPolyline timer;
-				float angleEnd = ofMap(hoverTime, 0, hoverWait, 1, 360, true);
+				float angleEnd = ofMap(hoverTime, 0.5, hoverWait, 1, 360, true);
 				timer.arc(cPos, radius, radius, 0, angleEnd, 60);
 				timer.draw();
 				ofPopStyle();
@@ -277,6 +331,11 @@ void ofApp::drawMenu() {
 		}
 	}
 	else if (cMenu == -1) {
+		ofPushStyle();
+		ofSetColor(255, 0, 255, 50);
+		ofSetCircleResolution(60);
+		ofDrawCircle(headAlign, 50);
+		ofPopStyle();
 		lineUpMenu.drawScreenOverlay(cropOrig, cropWidth, height);
 		lineUpMenu.drawMenu();
 	}

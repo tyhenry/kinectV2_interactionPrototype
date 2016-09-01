@@ -51,7 +51,7 @@ public:
 	float cropWidth;
 
 	// menus
-	int cMenu = 0;
+	int cMenu = -1;
 	bool bHorzMenu = true;
 	vector<HorzMenu> hMenus;
 	vector<VertMenu> vMenus;
@@ -71,7 +71,8 @@ public:
 	bool bNewUser = true;
 	ofVec2f rHandPos;
 	float hoverTime = 0;
-	float hoverWait = 2.5; // sec until select
+	float hoverWait = 3; // sec until select
+	ofVec2f headAlign;
 
 	bool drawUser = true;	
 };
